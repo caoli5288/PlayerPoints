@@ -1,17 +1,16 @@
 package org.black_ixx.playerpoints.storage.models;
 
+import org.black_ixx.playerpoints.PlayerPoints;
+import org.black_ixx.playerpoints.config.RootConfig;
+import org.black_ixx.playerpoints.storage.DatabaseStorage;
+import org.black_ixx.playerpoints.storage.MySQL;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.logging.Level;
-
-import lib.PatPeter.SQLibrary.MySQL;
-
-import org.black_ixx.playerpoints.PlayerPoints;
-import org.black_ixx.playerpoints.config.RootConfig;
-import org.black_ixx.playerpoints.storage.DatabaseStorage;
 
 /**
  * Storage handler for MySQL source.
