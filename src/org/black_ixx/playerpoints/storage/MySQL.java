@@ -63,16 +63,15 @@ public class MySQL extends HostnameDatabase {
     }
 
     protected void queryValidation(StatementEnum statement) throws SQLException {
-        switch (((Statements) statement).ordinal()) {
-            case 1:
+        switch (((lib.PatPeter.SQLibrary.MySQL.Statements) statement)) {
+            case USE:
                 this.warning("Please create a new connection to use a different database.");
                 throw new SQLException("Please create a new connection to use a different database.");
-            case 2:
-            case 3:
-            case 4:
+            case PREPARE:
+            case EXECUTE:
+            case DEALLOCATE:
                 this.warning("Please use the prepare() method to prepare a query.");
                 throw new SQLException("Please use the prepare() method to prepare a query.");
-            default:
         }
     }
 
@@ -147,46 +146,4 @@ public class MySQL extends HostnameDatabase {
         }
     }
 
-    public static enum Statements implements StatementEnum {
-        SELECT("SELECT"),
-        INSERT("INSERT"),
-        UPDATE("UPDATE"),
-        DELETE("DELETE"),
-        DO("DO"),
-        REPLACE("REPLACE"),
-        LOAD("LOAD"),
-        HANDLER("HANDLER"),
-        CALL("CALL"),
-        CREATE("CREATE"),
-        ALTER("ALTER"),
-        DROP("DROP"),
-        TRUNCATE("TRUNCATE"),
-        RENAME("RENAME"),
-        START("START"),
-        COMMIT("COMMIT"),
-        SAVEPOINT("SAVEPOINT"),
-        ROLLBACK("ROLLBACK"),
-        RELEASE("RELEASE"),
-        LOCK("LOCK"),
-        UNLOCK("UNLOCK"),
-        PREPARE("PREPARE"),
-        EXECUTE("EXECUTE"),
-        DEALLOCATE("DEALLOCATE"),
-        SET("SET"),
-        SHOW("SHOW"),
-        DESCRIBE("DESCRIBE"),
-        EXPLAIN("EXPLAIN"),
-        HELP("HELP"),
-        USE("USE");
-
-        private String string;
-
-        private Statements(String string) {
-            this.string = string;
-        }
-
-        public String toString() {
-            return this.string;
-        }
-    }
 }
