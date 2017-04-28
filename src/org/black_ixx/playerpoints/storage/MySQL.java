@@ -39,7 +39,7 @@ public class MySQL extends HostnameDatabase {
 
     protected boolean initialize() {
         try {
-            Class.forName("com.mysql.jdbc.jdbc2.optional.MysqlDataSource");
+            Class.forName("com.mysql.jdbc.Driver");
             return true;
         } catch (ClassNotFoundException var2) {
             this.warning("MySQL DataSource class missing: " + var2.getMessage() + ".");
